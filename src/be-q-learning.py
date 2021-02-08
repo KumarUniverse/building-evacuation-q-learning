@@ -69,7 +69,7 @@ def reset_q_table():
 def get_qtable_str():
     output = "[\n"
     for row in qtable:
-        output += str(row) + ",\n"
+        output += "\t" + str([round(x,2) for x in row]) + ",\n"
     output += "]\n"
 
     return output
@@ -123,7 +123,8 @@ if __name__ == "__main__":
     num_simulations = 100
     print(qlearn(num_simulations))
     print(evacuate(num_simulations))
-    print(get_qtable_str() + "\n")
+    print("Q table:")
+    print(get_qtable_str())
     reset_q_table()
 
     num_simulations = 500
